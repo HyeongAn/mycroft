@@ -1,18 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { persistReducer, PERSIST, PURGE } from 'redux-persist'
-import storage from 'redux-persist/lib/storage'
+import { PERSIST, PURGE } from 'redux-persist'
 import rootReducer from '../reducers/rootReducer'
 
-const persistConfig = {
-  key: 'root',
-  version: 1,
-  storage,
-}
-
-const persistedReducer = persistReducer(persistConfig, rootReducer)
-
 const store = configureStore({
-  reducer: persistedReducer,
+  reducer: rootReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
