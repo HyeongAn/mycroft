@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 
 export const Menu = styled.div`
-  background: gray;
+  background: #d3d3d3;
   position: absolute;
   top: 40px;
   left: -80%;
@@ -24,7 +24,7 @@ export const Menu = styled.div`
     transform: translate(-50%, -50%);
     border: 12px solid transparent;
     border-top-width: 0;
-    border-bottom-color: gray;
+    border-bottom-color: #d3d3d3;
   }
 
   ${({ isDropped }) =>
@@ -56,5 +56,5 @@ export const Li = styled.li``
 export const LinkWrapper = styled.span`
   font-size: 16px;
   text-decoration: none;
-  color: white;
+  color: ${({ fontColor }) => (fontColor ? '#6583ED' : 'white')};
 `
