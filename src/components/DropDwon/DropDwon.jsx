@@ -8,7 +8,7 @@ const DropDwon = ({ myPageIsOpen }) => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const isLogin = useSelector((state) => state.login.isLogin)
-  const [isService, setIsService] = useState(true)
+  const [isService, setIsService] = useState(false)
   const [isMypage, setIsMypage] = useState(false)
   const [isLogout, setIsLogout] = useState(false)
 

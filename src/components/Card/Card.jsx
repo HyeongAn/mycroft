@@ -20,7 +20,7 @@ const Card = ({ info }) => {
 
   return (
     <CardSection onClick={handleClick}>
-      <img src={info.photo} />
+      <img src={info.photo} alt="product img" />
       <ContentWrap>
         <h2>{info.title}</h2>
         <span>{info.content}</span>

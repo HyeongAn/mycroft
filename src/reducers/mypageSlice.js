@@ -4,9 +4,9 @@ const actionName = 'orderProduct'
 
 export const initialState = {
   orderProduct: {
-    totalPages: 3,
+    totalPages: 0,
     currentPage: 0,
-    contents: '',
+    content: '',
   },
 }
 
@@ -15,7 +15,7 @@ export const mypageSlice = createSlice({
   initialState,
   reducers: {
     getInfo: (state, action) => {
-      state.orderProduct = action.payload.orderProduct
+      state.orderProduct = action.payload
     },
   },
 })
