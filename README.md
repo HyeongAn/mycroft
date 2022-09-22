@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# mycroft
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 배포링크
 
-## Available Scripts
+[배포링크](http://mycroft.s3-website.ap-northeast-2.amazonaws.com)
 
-In the project directory, you can run:
+## 완성된 GIF 파일
+[Notion으로 보기](https://www.notion.so/Front-End-mycroft-d2a6a2e1baf74058a0eb223bed7f6095)
 
-### `npm start`
+## 프로젝트 실행 방법
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- 모듈 다운로드
+```terminal
+npm install .
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- 프로젝트 실행
+```terminal
+npm start
+```
 
-### `npm test`
+## 구현한 기능 목록
+ - **헤더(메뉴)**
+  - [x]  헤더 좌측에는 서비스 로고, 헤더 우측에는 메뉴 네비게이션이 존재한다.
+  - [x]  메뉴 네비게이션에는 좌측부터 순서대로 3가지 메뉴가 존재한다.
+  - [x]  메뉴는 클릭(선택) 된 경우 색이 변경된다.
+  - [x]  메뉴는 클릭 시, 해당 페이지로 이동 된다.
+ - **서비스**
+   - [x]  프로젝트 실행 시 최초로 로딩 되는 페이지이다.
+   - [x]  서비스 상단에 이미지가 있다.
+   - [x]  이미지 하단에 주문 하기 버튼이 있다.
+   - [x]  로그인을 하지 않은 사용자의 경우(토큰 없음) 주문 하기 버튼을 클릭 시, 로그인을 하라는 Alert이 발생한다. 그리고 /sign-up 페이지로 이동 된다.
+   - [x]  로그인을 한 사용자의 경우(토큰 있음) 신청하기 버튼을 클릭 시, 주문 성공 Alert이 발생한다.
+ - **회원가입**
+   - [x]  회원가입 할 때에 사용 되는 페이지 이다.    
+   - [x]  회원가입 시 다음과 같은 값을 Input 으로 수집한다.    
+   - [x]  하단에 가입하기 버튼을 넣는다.
+   - [x]  사용자가 이메일을 입력 시, 올바른 이메일 형식인지 유효성 검증을 해야 한다.
+   - [x]  비밀번호는 8~15자를 입력해야 한다.
+   - [x]  비밀번호 확인은 비밀번호와 일치하는지 확인해야 한다.
+   - [x]  회원가입 성공 시, 서비스 페이지로 이동 된다.
+ - **로그인**
+   - [x]  로그인 할 때에 사용 되는 페이지 이다.
+   - [x]  로그인 시, 아래와 같은 값을 입력한다.
+   - [x]  하단에 로그인 버튼을 넣는다.
+   - [x]  로그인 성공 시, 서비스 페이지로 이동된다.
+   - [x]  로그인 실패 시, 비밀번호를 확인해 달라는 Alert이 발생 한다.
+ - **마이페이지**
+   - [x]  주문 목록을 볼 때에 사용되는 페이지이다.
+   - [x]  해당 페이지에 진입하면, 주문 목록을 불러와야 한다.
+   - [x]  주문 목록은 주문 아이템을 컴포넌트로 가지며, 주문 아이템은 각각 좌측에 ID, 우측에 아이템 itemName을 배치한다.
+   - [x]  주문 목록은 페이징 기능이 구현되어야 한다.
+   - [x]  각 주문 아이템을 클릭 시, 상세 주문 페이지로 이동 된다.
+ - ** 마이페이지 상세**
+   - [x]  주문 아이템 상세 내용을 보기 위한 페이지이다.
+   - [x]  주문 상세 내용 페이지에 진입하면, 주문 상세 내용을 가져온다.
+   - [x]  주문 상세 내용은 좌측에 id, 우측에 itemName을 배치한다.
+ 
+## 구현 방법 및 구현하면서 어려웠던 점
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **구현 방법**
+  - useRef를 사용해서 특정 DOM으로 커서의 이동이 가능하도록 구현하였습니다.
+  - 핸드폰 번호를 입력할 때 숫자만 입력가능하게 하며 글자수의 제한을 둘 수 있도록 구현하였습니다.
+  - 드롭다운 메뉴를 만들어 Header를 깔끔하게 보일 수 있도록 하였습니다.
+  - Redux-toolkit을 사용하면서 LocalStorage와 SessionStorage를 동시에 사용할 수 있도록 구현하였습니다.
+  - 마이페이지의 목록 요청의 응답을 SessionStorage에 저장해두어 비효율적인 요청이 다시 일어나지 않도록 하였습니다.
+  - 마이페이지 상세에서 다시 마이페이지로 돌아갔을 경우, currentPage가 유지될 수 있도록 하였습니다.
+  - 비동기 요청시 Loading image가 보일 수 있도록 하였습니다.
+ 
+- **어려웠던 점**
+  - 리덕스 툴킷에 여러 스토리지를 적용하면서 러닝커브가 있어 시간이 많이 걸렸습니다.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 해당 과제에 대해서 소개하고 싶은 내용을 자유롭게 적어주세요.
+  - [리덕스 툴킷 여러 스토리지 적용하기](https://velog.io/@ahsy92/React-Redux%EC%97%90-%EC%97%AC%EB%9F%AC-%EC%8A%A4%ED%86%A0%EB%A6%AC%EC%A7%80-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0)
+  - [useRef으로 특정 DOM으로 focus하기](https://velog.io/@ahsy92/React-useRef%EB%A1%9C-%ED%8A%B9%EC%A0%95-DOM%EC%9C%BC%EB%A1%9C-focus%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0)
+  - [드롭다운 메뉴 만들기](https://velog.io/@ahsy92/React-styled-component%EB%A1%9C-%EB%93%9C%EB%A1%AD%EB%8B%A4%EC%9A%B4-%EB%A9%94%EB%89%B4-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0)
+  - [정규식으로 핸드폰 번호 만들기](https://velog.io/@ahsy92/React-%EC%A0%95%EA%B7%9C%EC%8B%9D%EC%9C%BC%EB%A1%9C-%ED%95%B8%EB%93%9C%ED%8F%B0-%EB%B2%88%ED%98%B8-input%EB%A7%8C%EB%93%A4%EA%B8%B0)
+  - [onBlur, onFocus](https://velog.io/@ahsy92/React-onBlur-onFocus-%EC%9D%B4%EB%B2%A4%ED%8A%B8)
+  - [useParams](https://velog.io/@ahsy92/React-%EB%8F%99%EC%A0%81-%EB%9D%BC%EC%9A%B0%ED%8C%85-useParams)
