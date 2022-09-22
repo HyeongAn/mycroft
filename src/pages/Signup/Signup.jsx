@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { login } from '../../reducers/loginSlice'
@@ -12,6 +12,7 @@ import {
 } from './styled'
 
 const Signup = () => {
+  const emailInput = useRef()
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const [passwordCheck, setPasswordCheck] = useState('')
@@ -53,7 +54,6 @@ const Signup = () => {
   const handleOnBlur = () => {
     if (!isValidEmail) {
       setValidEmail(true)
-      alert('이메일을 확인해주세요')
     } else {
       setValidEmail(false)
     }
@@ -89,6 +89,9 @@ const Signup = () => {
           }, 50)
         })
         .catch((error) => console.log(error))
+    } else if (!isValidEmail) {
+      alert('이메일을 확인해주세요.')
+      emailInput.current.focus()
     } else if (!isValidPassword) {
       alert('비밀번호는 8자 이상 15자 이하여야 합니다.')
     } else if (!isSamePassword) {
@@ -105,6 +108,7 @@ const Signup = () => {
           placeholder="이메일을 입력하세요"
           onChange={handleInputValue('email')}
           onBlur={handleOnBlur}
+          ref={emailInput}
           borderColor={validEmail}
         />
         <Title>비밀번호</Title>
