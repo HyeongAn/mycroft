@@ -5,9 +5,9 @@ export const CardSection = styled.section`
   height: 25rem;
   display: flex;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-  cursor: pointer;
   border-radius: 12px;
   flex-direction: column;
+  align-items: center;
   margin: 5rem 1rem 0 1rem;
 
   & > img {
@@ -30,9 +30,21 @@ export const ContentWrap = styled.div`
 
   & > span {
     font-size: 1rem;
-    max-height: 95px;
+    height: 58px;
     margin: 0 0.5rem;
     line-height: 1.2rem;
     overflow: hidden;
   }
+`
+
+export const Button = styled.button`
+  width: 70%;
+  height: 2rem;
+  background-color: #ff6767;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
 `

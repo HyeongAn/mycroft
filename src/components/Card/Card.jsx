@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { CardSection, ContentWrap } from './styled'
+import { CardSection, ContentWrap, Button } from './styled'
 
 const Card = ({ info }) => {
   const navigate = useNavigate()
@@ -19,12 +19,13 @@ const Card = ({ info }) => {
   }
 
   return (
-    <CardSection onClick={handleClick}>
+    <CardSection>
       <img src={info.photo} alt="product img" />
       <ContentWrap>
         <h2>{info.title}</h2>
         <span>{info.content}</span>
       </ContentWrap>
+      <Button onClick={handleClick}>주문하기</Button>
     </CardSection>
   )
 }
