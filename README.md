@@ -70,7 +70,7 @@ npm start
 - **어려웠던 점**
   - 리덕스 툴킷에 여러 스토리지를 적용하면서 러닝커브가 있어 시간이 많이 걸렸습니다.
 
-## 해당 과제에 대해서 소개하고 싶은 내용을 자유롭게 적어주세요.
+## 해당 과제에 대해서 소개하고 싶은 내용
   - [리덕스 툴킷 여러 스토리지 적용하기](https://velog.io/@ahsy92/React-Redux%EC%97%90-%EC%97%AC%EB%9F%AC-%EC%8A%A4%ED%86%A0%EB%A6%AC%EC%A7%80-%EC%A0%81%EC%9A%A9%ED%95%98%EA%B8%B0)
   - [useRef으로 특정 DOM으로 focus하기](https://velog.io/@ahsy92/React-useRef%EB%A1%9C-%ED%8A%B9%EC%A0%95-DOM%EC%9C%BC%EB%A1%9C-focus%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0)
   - [드롭다운 메뉴 만들기](https://velog.io/@ahsy92/React-styled-component%EB%A1%9C-%EB%93%9C%EB%A1%AD%EB%8B%A4%EC%9A%B4-%EB%A9%94%EB%89%B4-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0)
